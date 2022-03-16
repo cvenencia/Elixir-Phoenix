@@ -2,7 +2,7 @@ defmodule HelloWeb.Router do
   use HelloWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
+    plug :accepts, ["html", "text"]
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, {HelloWeb.LayoutView, :root}
@@ -27,6 +27,8 @@ defmodule HelloWeb.Router do
     resources "/reviews", ReviewController
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
+    get "/redirect_test", PageController, :redirect_test
+    get "/test", PageController, :test
   end
 
   scope "/admin", HelloWeb.Admin, as: :admin do
