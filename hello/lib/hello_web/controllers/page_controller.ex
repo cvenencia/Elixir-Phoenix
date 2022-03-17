@@ -2,7 +2,7 @@ defmodule HelloWeb.PageController do
   use HelloWeb, :controller
 
   def index(conn, _params) do
-    # render(conn, :index)
+    render(conn, :index)
 
     # conn
     # |> send_resp(201, "")
@@ -14,8 +14,8 @@ defmodule HelloWeb.PageController do
     # |> put_flash(:error, "Fake error, don't worry.")
     # |> redirect(to: Routes.page_path(conn, :redirect_test))
 
-    pages = [%{title: "foo"}, %{title: "bar"}]
-    render(conn, "index.json", pages: pages)
+    # pages = [%{title: "foo"}, %{title: "bar"}]
+    # render(conn, "index.json", pages: pages)
   end
 
   def show(conn, _params) do
