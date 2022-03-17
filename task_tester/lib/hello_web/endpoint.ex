@@ -7,14 +7,10 @@ defmodule HelloWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_hello_key",
-    signing_salt: "1VPh/Ppp"
+    signing_salt: "I72YKoiY"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
-
-  socket "/socket", HelloWeb.UserSocket,
-  websocket: true,
-  longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -50,15 +46,5 @@ defmodule HelloWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug :introspect
   plug HelloWeb.Router
-
-  def introspect(conn, _opts) do
-    IO.puts """
-    Verb: #{inspect(conn.method)}
-    Host: #{inspect(conn.host)}
-    """
-
-    conn
-  end
 end
