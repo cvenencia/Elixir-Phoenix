@@ -13,8 +13,8 @@ defmodule HelloWeb.Endpoint do
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
   socket "/socket", HelloWeb.UserSocket,
-  websocket: true,
-  longpoll: false
+    websocket: [timeout: 45_000],
+    longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
   #
